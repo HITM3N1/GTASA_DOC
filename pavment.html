@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pavment — Dokumentacja symulacji</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    
+<aside class="sidebar">
+  <div class="brand">
+    <h1>Dokumentacja symulacji</h1>
+    <p>GTASA — symulacja agentowa w MonoGame</p>
+  </div>
+  <nav class="nav">
+
+<div class="section-label">1. Informacje ogólne</div>
+<a class="" href="info-cel.html">Cel programu</a>
+<a class="" href="info-tematyka.html">Tematyka symulacji</a>
+<a class="" href="info-mechaniki.html">Główne mechaniki</a>
+<a class="" href="info-przebieg.html">Przebieg działania</a>
+<a class="" href="info-technologie.html">Technologie</a>
+<div class="section-label">2. MonoGame</div>
+<a class="" href="monogame-rola.html">Rola MonoGame</a>
+<a class="" href="monogame-cykl.html">Cykl życia aplikacji</a>
+<a class="" href="game1.html">Game1</a>
+<a class="" href="monogame-obiekty.html">Najważniejsze obiekty</a>
+<div class="section-label">3. Struktura symulacji</div>
+<a class="" href="struktura-zaleznosci.html">Mapa zależności</a>
+<a class="" href="symulation.html">Symulation</a>
+<a class="" href="essentials.html">Essentials</a>
+<a class="" href="board.html">Board</a>
+<a class="" href="cell.html">Cell</a>
+<a class="" href="emptycell.html">EmptyCell</a>
+<a class="active" href="pavment.html">Pavment</a>
+<a class="" href="building.html">Building</a>
+<a class="" href="groupabstract.html">GroupAbstract</a>
+<a class="" href="group.html">Group</a>
+<a class="" href="citizens.html">Citizens</a>
+<a class="" href="police.html">Police</a>
+<a class="" href="gang.html">Gang</a>
+<a class="" href="agent.html">Agent</a>
+<div class="section-label">4. Podsumowanie i rozwój</div>
+<a class="" href="podsumowanie-dzialanie.html">Podsumowanie działania</a>
+<a class="" href="podsumowanie-cechy.html">Najważniejsze cechy</a>
+<a class="" href="podsumowanie-rozwoj.html">Kierunki rozwoju</a>
+<a class="" href="podsumowanie-zastosowania.html">Zastosowania</a>
+<a class="" href="podsumowanie-wniosek.html">Wniosek końcowy</a>
+</nav></aside>
+    <main>
+      
+<header class="class-header">
+  <p class="kicker">Dokumentacja elementu programu</p>
+  <h2><span class="cls">Pavment</span></h2>
+  <span class="pill">klasa</span>
+  <p>Klasa reprezentująca chodnik, czyli podstawowe pole ruchu agentów.</p>
+</header>
+<section class="card"><h3 class="section-title">Założenie i logika działania</h3><p>Chodniki tworzą sieć komunikacyjną miasta. Agenci poruszają się po tej sieci i dzięki niej mogą być przywoływani do celów.</p></section><section class="card"><h3 class="section-title">Pola klasy</h3><div class="table-wrap"><table>
+<thead><tr><th>Pole</th><th>Opis</th></tr></thead>
+<tbody><tr><td><span class='signature'><span class='kw'>private</span> <span class='str'>Vector2</span> <span class='fld'>cords</span></span></td><td>Współrzędne chodnika w siatce mapy.</td></tr><tr><td><span class='signature'><span class='kw'>private</span> <span class='enm'>CellType</span> <span class='fld'>type</span></span></td><td>Typ komórki ustawiony jako chodnik.</td></tr><tr><td><span class='signature'><span class='kw'>public</span> <span class='cls'>Dictionary</span>&lt;<span class='dt'>int</span>, <span class='cls'>Pavment</span>&gt; <span class='fld'>pavmentsNearby</span></span></td><td>Sąsiednie chodniki zapisane według kierunku.</td></tr><tr><td><span class='signature'><span class='kw'>private</span> <span class='dt'>bool</span> <span class='fld'>isBuildingEntrace</span></span></td><td>Informacja, czy chodnik jest wejściem do budynku.</td></tr><tr><td><span class='signature'><span class='kw'>private</span> <span class='cls'>List</span>&lt;<span class='cls'>Agent</span>&gt; <span class='fld'>agentsInside</span></span></td><td>Lista agentów znajdujących się na chodniku.</td></tr><tr><td><span class='signature'><span class='kw'>private</span> <span class='enm'>TextureType</span> <span class='fld'>textureType</span></span></td><td>Wariant tekstury chodnika.</td></tr></tbody>
+</table></div></section><section class="card"><h3 class="section-title">Metody klasy</h3><div class="method-list">
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='mtd'>Pavment</span>(<span class='str'>Vector2</span> cords)</span>
+  <p>Konstruktor ustawia współrzędne, typ, listę agentów, słownik sąsiadów i losuje teksturę.</p>
+  <p class="meta">Argumenty: <span class='str'>Vector2</span> cords. Typ zwracany: konstruktor nie zwraca wartości.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>Draw</span>(<span class='cls'>SpriteBatch</span> spriteBatch)</span>
+  <p>Rysuje teksturę chodnika.</p>
+  <p class="meta">Argumenty: <span class='cls'>SpriteBatch</span> spriteBatch. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='cls'>List</span>&lt;<span class='cls'>Agent</span>&gt; <span class='mtd'>GetAgents</span>()</span>
+  <p>Zwraca listę agentów znajdujących się na chodniku.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='cls'>List</span>&lt;<span class='cls'>Agent</span>&gt;.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>AddAgent</span>(<span class='cls'>Agent</span> agent)</span>
+  <p>Dodaje agenta do chodnika.</p>
+  <p class="meta">Argumenty: <span class='cls'>Agent</span> agent. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>RemoveAgent</span>(<span class='cls'>Agent</span> agent)</span>
+  <p>Usuwa agenta z chodnika.</p>
+  <p class="meta">Argumenty: <span class='cls'>Agent</span> agent. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='str'>Vector2</span> <span class='mtd'>GetAbsolutPosition</span>()</span>
+  <p>Zwraca pozycję chodnika w pikselach.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='str'>Vector2</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='enm'>CellType</span> <span class='mtd'>GetCellType</span>()</span>
+  <p>Zwraca typ komórki.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='enm'>CellType</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>bool</span> <span class='mtd'>IsBuildingEntrace</span>()</span>
+  <p>Zwraca informację, czy chodnik jest wejściem do budynku.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='dt'>bool</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>SetNeighbor</span>(<span class='dt'>int</span> direction, <span class='cls'>Pavment</span> cell)</span>
+  <p>Dodaje sąsiada w danym kierunku.</p>
+  <p class="meta">Argumenty: <span class='dt'>int</span> direction, <span class='cls'>Pavment</span> cell. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>CallAgents</span>(<span class='dt'>int</span> k, <span class='cls'>Group</span> group, <span class='cls'>Queue</span>&lt;<span class='str'>Vector2</span>&gt; pathToTarget, <span class='cls'>HashSet</span>&lt;<span class='cls'>Pavment</span>&gt; visited)</span>
+  <p>Przeszukuje chodniki w zasięgu i ustawia ścieżkę agentom wybranej grupy.</p>
+  <p class="meta">Argumenty: <span class='dt'>int</span> k, <span class='cls'>Group</span> group, <span class='cls'>Queue</span>&lt;<span class='str'>Vector2</span>&gt; pathToTarget, <span class='cls'>HashSet</span>&lt;<span class='cls'>Pavment</span>&gt; visited. Typ zwracany: <span class='dt'>void</span>.</p>
+</div></div></section><div class="page-nav"><a href="emptycell.html">← EmptyCell</a><a class="right" href="building.html">Building →</a></div>
+      <div class="footer">
+        Dokumentacja produktu: symulacja agentowa przejmowania terytorium przez grupy działające na mapie miasta.
+      </div>
+    </main>
+  </div>
+</body>
+</html>

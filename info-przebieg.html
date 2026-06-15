@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Przebieg działania — Dokumentacja symulacji</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    
+<aside class="sidebar">
+  <div class="brand">
+    <h1>Dokumentacja symulacji</h1>
+    <p>GTASA — symulacja agentowa w MonoGame</p>
+  </div>
+  <nav class="nav">
+
+<div class="section-label">1. Informacje ogólne</div>
+<a class="" href="info-cel.html">Cel programu</a>
+<a class="" href="info-tematyka.html">Tematyka symulacji</a>
+<a class="" href="info-mechaniki.html">Główne mechaniki</a>
+<a class="active" href="info-przebieg.html">Przebieg działania</a>
+<a class="" href="info-technologie.html">Technologie</a>
+<div class="section-label">2. MonoGame</div>
+<a class="" href="monogame-rola.html">Rola MonoGame</a>
+<a class="" href="monogame-cykl.html">Cykl życia aplikacji</a>
+<a class="" href="game1.html">Game1</a>
+<a class="" href="monogame-obiekty.html">Najważniejsze obiekty</a>
+<div class="section-label">3. Struktura symulacji</div>
+<a class="" href="struktura-zaleznosci.html">Mapa zależności</a>
+<a class="" href="symulation.html">Symulation</a>
+<a class="" href="essentials.html">Essentials</a>
+<a class="" href="board.html">Board</a>
+<a class="" href="cell.html">Cell</a>
+<a class="" href="emptycell.html">EmptyCell</a>
+<a class="" href="pavment.html">Pavment</a>
+<a class="" href="building.html">Building</a>
+<a class="" href="groupabstract.html">GroupAbstract</a>
+<a class="" href="group.html">Group</a>
+<a class="" href="citizens.html">Citizens</a>
+<a class="" href="police.html">Police</a>
+<a class="" href="gang.html">Gang</a>
+<a class="" href="agent.html">Agent</a>
+<div class="section-label">4. Podsumowanie i rozwój</div>
+<a class="" href="podsumowanie-dzialanie.html">Podsumowanie działania</a>
+<a class="" href="podsumowanie-cechy.html">Najważniejsze cechy</a>
+<a class="" href="podsumowanie-rozwoj.html">Kierunki rozwoju</a>
+<a class="" href="podsumowanie-zastosowania.html">Zastosowania</a>
+<a class="" href="podsumowanie-wniosek.html">Wniosek końcowy</a>
+</nav></aside>
+    <main>
+      
+<header class="hero">
+  <p class="kicker">1. Informacje ogólne</p>
+  <h2>Przebieg działania</h2>
+  <p>Program działa w pętli czasu rzeczywistego. Każda klatka aktualizuje stan symulacji i rysuje jej aktualny wynik.</p>
+  
+</header>
+
+<section class="card">
+  <h3 class="section-title">Kolejność działania</h3>
+  <ol class="flow">
+    <li>Program uruchamia klasę <span class="cls">Game1</span>.</li>
+    <li>Tworzony jest obiekt <span class="cls">Symulation</span>.</li>
+    <li>Inicjalizowana jest konfiguracja w klasie <span class="cls">Essentials</span>.</li>
+    <li>Tworzona jest mapa w klasie <span class="cls">Board</span>.</li>
+    <li>Powstają grupy: obywatele, policja i gangi.</li>
+    <li>Gangi otrzymują bazy i wybierają cele ataku.</li>
+    <li>W każdej klatce aktualizowany jest ruch, rekrutacja, przejmowanie i reakcje grup.</li>
+    <li>Program rysuje mapę oraz agentów w określonej kolejności warstw.</li>
+  </ol>
+</section>
+
+<div class="page-nav"><a href="info-mechaniki.html">← Główne mechaniki</a><a class="right" href="info-technologie.html">Technologie →</a></div>
+
+      <div class="footer">
+        Dokumentacja produktu: symulacja agentowa przejmowania terytorium przez grupy działające na mapie miasta.
+      </div>
+    </main>
+  </div>
+</body>
+</html>
