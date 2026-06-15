@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Board — Dokumentacja symulacji</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    
+<aside class="sidebar">
+  <div class="brand">
+    <h1>Dokumentacja symulacji</h1>
+    <p>GTASA — symulacja agentowa w MonoGame</p>
+  </div>
+  <nav class="nav">
+
+<div class="section-label">1. Informacje ogólne</div>
+<a class="" href="info-cel.html">Cel programu</a>
+<a class="" href="info-tematyka.html">Tematyka symulacji</a>
+<a class="" href="info-mechaniki.html">Główne mechaniki</a>
+<a class="" href="info-przebieg.html">Przebieg działania</a>
+<a class="" href="info-technologie.html">Technologie</a>
+<div class="section-label">2. MonoGame</div>
+<a class="" href="monogame-rola.html">Rola MonoGame</a>
+<a class="" href="monogame-cykl.html">Cykl życia aplikacji</a>
+<a class="" href="game1.html">Game1</a>
+<a class="" href="monogame-obiekty.html">Najważniejsze obiekty</a>
+<div class="section-label">3. Struktura symulacji</div>
+<a class="" href="struktura-zaleznosci.html">Mapa zależności</a>
+<a class="" href="symulation.html">Symulation</a>
+<a class="" href="essentials.html">Essentials</a>
+<a class="active" href="board.html">Board</a>
+<a class="" href="cell.html">Cell</a>
+<a class="" href="emptycell.html">EmptyCell</a>
+<a class="" href="pavment.html">Pavment</a>
+<a class="" href="building.html">Building</a>
+<a class="" href="groupabstract.html">GroupAbstract</a>
+<a class="" href="group.html">Group</a>
+<a class="" href="citizens.html">Citizens</a>
+<a class="" href="police.html">Police</a>
+<a class="" href="gang.html">Gang</a>
+<a class="" href="agent.html">Agent</a>
+<div class="section-label">4. Podsumowanie i rozwój</div>
+<a class="" href="podsumowanie-dzialanie.html">Podsumowanie działania</a>
+<a class="" href="podsumowanie-cechy.html">Najważniejsze cechy</a>
+<a class="" href="podsumowanie-rozwoj.html">Kierunki rozwoju</a>
+<a class="" href="podsumowanie-zastosowania.html">Zastosowania</a>
+<a class="" href="podsumowanie-wniosek.html">Wniosek końcowy</a>
+</nav></aside>
+    <main>
+      
+<header class="class-header">
+  <p class="kicker">Dokumentacja elementu programu</p>
+  <h2><span class="cls">Board</span></h2>
+  <span class="pill">klasa</span>
+  <p>Klasa odpowiadająca za mapę symulacji: tworzenie siatki, chodników, budynków, wejść oraz wyszukiwanie komórek.</p>
+</header>
+<section class="card"><h3 class="section-title">Założenie i logika działania</h3><p>Mapa jest budowana etapami: pusta siatka, chodniki, budynki, sąsiedzi i wejścia.</p></section><section class="card"><h3 class="section-title">Pola klasy</h3><div class="table-wrap"><table>
+<thead><tr><th>Pole</th><th>Opis</th></tr></thead>
+<tbody><tr><td><span class='signature'><span class='kw'>private readonly</span> <span class='dt'>int</span> <span class='fld'>size</span></span></td><td>Rozmiar mapy.</td></tr><tr><td><span class='signature'><span class='kw'>private</span> <span class='cls'>Dictionary</span>&lt;<span class='str'>Vector2</span>, <span class='itf'>Cell</span>&gt; <span class='fld'>grid</span></span></td><td>Siatka mapy przechowywana jako słownik pozycji i komórek.</td></tr><tr><td><span class='signature'><span class='kw'>private</span> <span class='cls'>List</span>&lt;<span class='cls'>Pavment</span>&gt; <span class='fld'>pavments</span></span></td><td>Lista wszystkich chodników.</td></tr><tr><td><span class='signature'><span class='kw'>private</span> <span class='cls'>List</span>&lt;<span class='cls'>Building</span>&gt; <span class='fld'>buildings</span></span></td><td>Lista wszystkich budynków.</td></tr><tr><td><span class='signature'><span class='kw'>private</span> <span class='cls'>Citizens</span> <span class='fld'>citizens</span></span></td><td>Referencja do grupy obywateli.</td></tr></tbody>
+</table></div></section><section class="card"><h3 class="section-title">Metody klasy</h3><div class="method-list">
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='mtd'>Board</span>(<span class='dt'>int</span> size)</span>
+  <p>Konstruktor zapisuje rozmiar mapy oraz tworzy puste kolekcje.</p>
+  <p class="meta">Argumenty: <span class='dt'>int</span> size. Typ zwracany: konstruktor nie zwraca wartości.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>Initialize</span>(<span class='cls'>Citizens</span> citizens)</span>
+  <p>Tworzy pełną mapę: puste komórki, chodniki, budynki, sąsiadów i wejścia.</p>
+  <p class="meta">Argumenty: <span class='cls'>Citizens</span> citizens. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>Update</span>(<span class='cls'>GameTime</span> gameTime)</span>
+  <p>Aktualizuje wszystkie budynki.</p>
+  <p class="meta">Argumenty: <span class='cls'>GameTime</span> gameTime. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>Draw</span>(<span class='cls'>SpriteBatch</span> spriteBatch)</span>
+  <p>Rysuje chodniki i budynki.</p>
+  <p class="meta">Argumenty: <span class='cls'>SpriteBatch</span> spriteBatch. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>private</span> <span class='dt'>void</span> <span class='mtd'>GeneratePavment</span>(<span class='dt'>int</span> count, <span class='dt'>int</span> minimaloffset)</span>
+  <p>Generuje chodniki poziome i pionowe.</p>
+  <p class="meta">Argumenty: <span class='dt'>int</span> count, <span class='dt'>int</span> minimaloffset. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='dt'>void</span> <span class='mtd'>GenerateBuilding</span>()</span>
+  <p>Tworzy budynki z pustych obszarów mapy.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='dt'>void</span> <span class='mtd'>GenerateNeighbors</span>()</span>
+  <p>Tworzy sąsiedztwa chodników i wejścia do budynków.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>CheckNeighbor</span>(<span class='cls'>Pavment</span> pavment, <span class='itf'>Cell</span> neighbor, <span class='dt'>int</span> direction)</span>
+  <p>Sprawdza sąsiednią komórkę i wykonuje odpowiednie połączenie.</p>
+  <p class="meta">Argumenty: <span class='cls'>Pavment</span> pavment, <span class='itf'>Cell</span> neighbor, <span class='dt'>int</span> direction. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>TryMakeEntrace</span>(<span class='cls'>Building</span> building, <span class='cls'>Pavment</span> pavment, <span class='dt'>int</span> directionFromPavmentToBuilding)</span>
+  <p>Ustawia wejście do budynku.</p>
+  <p class="meta">Argumenty: <span class='cls'>Building</span> building, <span class='cls'>Pavment</span> pavment, <span class='dt'>int</span> directionFromPavmentToBuilding. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='itf'>Cell</span> <span class='mtd'>GetCell</span>(<span class='str'>Vector2</span> absolutPosition)</span>
+  <p>Zamienia pozycję pikselową na kafelkową i zwraca komórkę.</p>
+  <p class="meta">Argumenty: <span class='str'>Vector2</span> absolutPosition. Typ zwracany: <span class='itf'>Cell</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='cls'>List</span>&lt;<span class='cls'>Building</span>&gt; <span class='mtd'>GetGangBuildings</span>(<span class='itf'>GroupAbstract</span> group)</span>
+  <p>Zwraca budynki należące do podanej grupy.</p>
+  <p class="meta">Argumenty: <span class='itf'>GroupAbstract</span> group. Typ zwracany: <span class='cls'>List</span>&lt;<span class='cls'>Building</span>&gt;.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='cls'>List</span>&lt;<span class='cls'>Building</span>&gt; <span class='mtd'>GetAllBuildingsUnderAttack</span>()</span>
+  <p>Zwraca budynki pod atakiem.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='cls'>List</span>&lt;<span class='cls'>Building</span>&gt;.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='itf'>Cell</span> <span class='mtd'>GetRandomPavment</span>()</span>
+  <p>Zwraca losowy chodnik.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='itf'>Cell</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='itf'>Cell</span> <span class='mtd'>GetRandomBorderPavment</span>()</span>
+  <p>Zwraca losowy chodnik końcowy.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='itf'>Cell</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='cls'>Building</span> <span class='mtd'>GetFreeSpawnBuilding</span>(<span class='cls'>Group</span> group)</span>
+  <p>Zwraca wolny budynek startowy i przypisuje go do grupy.</p>
+  <p class="meta">Argumenty: <span class='cls'>Group</span> group. Typ zwracany: <span class='cls'>Building</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='cls'>Building</span> <span class='mtd'>GetRandomFreeBuilding</span>(<span class='itf'>GroupAbstract</span> groupAbstract)</span>
+  <p>Zwraca losowy budynek, który nie należy do podanej grupy.</p>
+  <p class="meta">Argumenty: <span class='itf'>GroupAbstract</span> groupAbstract. Typ zwracany: <span class='cls'>Building</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>SetCitizens</span>(<span class='cls'>Citizens</span> citizens)</span>
+  <p>Ustawia referencję do obywateli.</p>
+  <p class="meta">Argumenty: <span class='cls'>Citizens</span> citizens. Typ zwracany: <span class='dt'>void</span>.</p>
+</div></div></section><div class="page-nav"><a href="essentials.html">← Essentials</a><a class="right" href="cell.html">Cell →</a></div>
+      <div class="footer">
+        Dokumentacja produktu: symulacja agentowa przejmowania terytorium przez grupy działające na mapie miasta.
+      </div>
+    </main>
+  </div>
+</body>
+</html>

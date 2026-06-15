@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gang — Dokumentacja symulacji</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    
+<aside class="sidebar">
+  <div class="brand">
+    <h1>Dokumentacja symulacji</h1>
+    <p>GTASA — symulacja agentowa w MonoGame</p>
+  </div>
+  <nav class="nav">
+
+<div class="section-label">1. Informacje ogólne</div>
+<a class="" href="info-cel.html">Cel programu</a>
+<a class="" href="info-tematyka.html">Tematyka symulacji</a>
+<a class="" href="info-mechaniki.html">Główne mechaniki</a>
+<a class="" href="info-przebieg.html">Przebieg działania</a>
+<a class="" href="info-technologie.html">Technologie</a>
+<div class="section-label">2. MonoGame</div>
+<a class="" href="monogame-rola.html">Rola MonoGame</a>
+<a class="" href="monogame-cykl.html">Cykl życia aplikacji</a>
+<a class="" href="game1.html">Game1</a>
+<a class="" href="monogame-obiekty.html">Najważniejsze obiekty</a>
+<div class="section-label">3. Struktura symulacji</div>
+<a class="" href="struktura-zaleznosci.html">Mapa zależności</a>
+<a class="" href="symulation.html">Symulation</a>
+<a class="" href="essentials.html">Essentials</a>
+<a class="" href="board.html">Board</a>
+<a class="" href="cell.html">Cell</a>
+<a class="" href="emptycell.html">EmptyCell</a>
+<a class="" href="pavment.html">Pavment</a>
+<a class="" href="building.html">Building</a>
+<a class="" href="groupabstract.html">GroupAbstract</a>
+<a class="" href="group.html">Group</a>
+<a class="" href="citizens.html">Citizens</a>
+<a class="" href="police.html">Police</a>
+<a class="active" href="gang.html">Gang</a>
+<a class="" href="agent.html">Agent</a>
+<div class="section-label">4. Podsumowanie i rozwój</div>
+<a class="" href="podsumowanie-dzialanie.html">Podsumowanie działania</a>
+<a class="" href="podsumowanie-cechy.html">Najważniejsze cechy</a>
+<a class="" href="podsumowanie-rozwoj.html">Kierunki rozwoju</a>
+<a class="" href="podsumowanie-zastosowania.html">Zastosowania</a>
+<a class="" href="podsumowanie-wniosek.html">Wniosek końcowy</a>
+</nav></aside>
+    <main>
+      
+<header class="class-header">
+  <p class="kicker">Dokumentacja elementu programu</p>
+  <h2><span class="cls">Gang</span></h2>
+  <span class="pill">klasa</span>
+  <p>Klasa reprezentująca gang, czyli aktywną grupę przejmującą budynki.</p>
+</header>
+<section class="card"><h3 class="section-title">Założenie i logika działania</h3><p>Gang posiada bazę i cel ataku. W trakcie symulacji próbuje przejmować kolejne budynki oraz bronić własnych obiektów.</p></section><section class="card"><h3 class="section-title">Pola klasy</h3><div class="table-wrap"><table>
+<thead><tr><th>Pole</th><th>Opis</th></tr></thead>
+<tbody><tr><td><span class='signature'><span class='dt'>int</span> <span class='fld'>gangID</span></span></td><td>Unikalny numer gangu.</td></tr><tr><td><span class='signature'><span class='kw'>private</span> <span class='cls'>Building</span> <span class='fld'>groupBase</span></span></td><td>Budynek będący bazą gangu.</td></tr><tr><td><span class='signature'><span class='kw'>private</span> <span class='cls'>Building</span> <span class='fld'>target</span></span></td><td>Aktualny cel ataku.</td></tr><tr><td><span class='signature'><span class='kw'>private</span> <span class='cls'>List</span>&lt;<span class='cls'>Building</span>&gt; <span class='fld'>gangBuildings</span></span></td><td>Lista budynków należących do gangu.</td></tr></tbody>
+</table></div></section><section class="card"><h3 class="section-title">Metody klasy</h3><div class="method-list">
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='mtd'>Gang</span>(<span class='dt'>int</span> gangID, <span class='enm'>GroupColor</span> color, <span class='cls'>Board</span> board)</span>
+  <p>Konstruktor ustawia identyfikator gangu i przekazuje parametry do klasy bazowej.</p>
+  <p class="meta">Argumenty: <span class='dt'>int</span> gangID, <span class='enm'>GroupColor</span> color, <span class='cls'>Board</span> board. Typ zwracany: konstruktor nie zwraca wartości.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>Initialize</span>()</span>
+  <p>Wybiera bazę gangu, aktualny cel ataku, rozpoczyna atak i tworzy agentów startowych.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>Update</span>(<span class='cls'>GameTime</span> gameTime)</span>
+  <p>Aktualizuje listę budynków, obronę, atak, wybór celu i agentów gangu.</p>
+  <p class="meta">Argumenty: <span class='cls'>GameTime</span> gameTime. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='cls'>List</span>&lt;<span class='cls'>Building</span>&gt; <span class='mtd'>CheckIfGangBuildingAreUnderAttack</span>(<span class='cls'>List</span>&lt;<span class='cls'>Building</span>&gt; gangBuildings)</span>
+  <p>Zwraca listę budynków gangu, które są pod atakiem.</p>
+  <p class="meta">Argumenty: <span class='cls'>List</span>&lt;<span class='cls'>Building</span>&gt; gangBuildings. Typ zwracany: <span class='cls'>List</span>&lt;<span class='cls'>Building</span>&gt;.</p>
+</div></div></section><div class="page-nav"><a href="police.html">← Police</a><a class="right" href="agent.html">Agent →</a></div>
+      <div class="footer">
+        Dokumentacja produktu: symulacja agentowa przejmowania terytorium przez grupy działające na mapie miasta.
+      </div>
+    </main>
+  </div>
+</body>
+</html>

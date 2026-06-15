@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent — Dokumentacja symulacji</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    
+<aside class="sidebar">
+  <div class="brand">
+    <h1>Dokumentacja symulacji</h1>
+    <p>GTASA — symulacja agentowa w MonoGame</p>
+  </div>
+  <nav class="nav">
+
+<div class="section-label">1. Informacje ogólne</div>
+<a class="" href="info-cel.html">Cel programu</a>
+<a class="" href="info-tematyka.html">Tematyka symulacji</a>
+<a class="" href="info-mechaniki.html">Główne mechaniki</a>
+<a class="" href="info-przebieg.html">Przebieg działania</a>
+<a class="" href="info-technologie.html">Technologie</a>
+<div class="section-label">2. MonoGame</div>
+<a class="" href="monogame-rola.html">Rola MonoGame</a>
+<a class="" href="monogame-cykl.html">Cykl życia aplikacji</a>
+<a class="" href="game1.html">Game1</a>
+<a class="" href="monogame-obiekty.html">Najważniejsze obiekty</a>
+<div class="section-label">3. Struktura symulacji</div>
+<a class="" href="struktura-zaleznosci.html">Mapa zależności</a>
+<a class="" href="symulation.html">Symulation</a>
+<a class="" href="essentials.html">Essentials</a>
+<a class="" href="board.html">Board</a>
+<a class="" href="cell.html">Cell</a>
+<a class="" href="emptycell.html">EmptyCell</a>
+<a class="" href="pavment.html">Pavment</a>
+<a class="" href="building.html">Building</a>
+<a class="" href="groupabstract.html">GroupAbstract</a>
+<a class="" href="group.html">Group</a>
+<a class="" href="citizens.html">Citizens</a>
+<a class="" href="police.html">Police</a>
+<a class="" href="gang.html">Gang</a>
+<a class="active" href="agent.html">Agent</a>
+<div class="section-label">4. Podsumowanie i rozwój</div>
+<a class="" href="podsumowanie-dzialanie.html">Podsumowanie działania</a>
+<a class="" href="podsumowanie-cechy.html">Najważniejsze cechy</a>
+<a class="" href="podsumowanie-rozwoj.html">Kierunki rozwoju</a>
+<a class="" href="podsumowanie-zastosowania.html">Zastosowania</a>
+<a class="" href="podsumowanie-wniosek.html">Wniosek końcowy</a>
+</nav></aside>
+    <main>
+      
+<header class="class-header">
+  <p class="kicker">Dokumentacja elementu programu</p>
+  <h2><span class="cls">Agent</span></h2>
+  <span class="pill">klasa</span>
+  <p>Klasa reprezentująca pojedynczego agenta działającego w symulacji.</p>
+</header>
+<section class="card"><h3 class="section-title">Założenie i logika działania</h3><p>Agent jest podstawową jednostką symulacji. Może poruszać się po chodnikach, wejść do budynku, zostać zrekrutowany i działać jako członek konkretnej grupy.</p></section><section class="card"><h3 class="section-title">Pola klasy</h3><div class="table-wrap"><table>
+<thead><tr><th>Pole</th><th>Opis</th></tr></thead>
+<tbody><tr><td><span class='signature'><span class='itf'>GroupAbstract</span> <span class='fld'>group</span></span></td><td>Grupa, do której należy agent.</td></tr><tr><td><span class='signature'><span class='cls'>Board</span> <span class='fld'>board</span></span></td><td>Plansza, po której porusza się agent.</td></tr><tr><td><span class='signature'><span class='itf'>Cell</span> <span class='fld'>cell</span></span></td><td>Aktualna komórka agenta.</td></tr><tr><td><span class='signature'><span class='str'>Vector2</span> <span class='fld'>absolutPosition</span></span></td><td>Pozycja agenta w pikselach.</td></tr><tr><td><span class='signature'><span class='cls'>Queue</span>&lt;<span class='str'>Vector2</span>&gt; <span class='fld'>targetPath</span></span></td><td>Kolejka punktów tworzących ścieżkę ruchu.</td></tr><tr><td><span class='signature'><span class='dt'>int</span>? <span class='fld'>direction</span></span></td><td>Aktualny kierunek ruchu.</td></tr><tr><td><span class='signature'><span class='dt'>float</span> <span class='fld'>speed</span></span></td><td>Prędkość ruchu agenta.</td></tr><tr><td><span class='signature'><span class='dt'>bool</span> <span class='fld'>isMoving</span></span></td><td>Informacja, czy agent jest w trakcie ruchu.</td></tr><tr><td><span class='signature'><span class='dt'>bool</span> <span class='fld'>canBeMoved</span></span></td><td>Informacja, czy agent może otrzymać nowy cel.</td></tr><tr><td><span class='signature'><span class='dt'>bool</span> <span class='fld'>isBeingRecruted</span></span></td><td>Informacja, czy agent jest rekrutowany.</td></tr><tr><td><span class='signature'><span class='itf'>GroupAbstract</span> <span class='fld'>newOccupation</span></span></td><td>Grupa, do której agent przejdzie po rekrutacji.</td></tr><tr><td><span class='signature'><span class='dt'>float</span> <span class='fld'>recrutationTimmer</span></span></td><td>Czas rozpoczęcia rekrutacji.</td></tr><tr><td><span class='signature'><span class='dt'>float</span> <span class='fld'>moveTimer</span></span></td><td>Licznik ruchu.</td></tr><tr><td><span class='signature'><span class='str'>Vector2</span> <span class='fld'>startPosition</span></span></td><td>Pozycja startowa ruchu.</td></tr><tr><td><span class='signature'><span class='str'>Vector2</span> <span class='fld'>targetPosition</span></span></td><td>Pozycja docelowa ruchu.</td></tr></tbody>
+</table></div></section><section class="card"><h3 class="section-title">Metody klasy</h3><div class="method-list">
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='mtd'>Agent</span>(<span class='itf'>GroupAbstract</span> group, <span class='cls'>Board</span> board, <span class='itf'>Cell</span> spawnCell)</span>
+  <p>Konstruktor ustawia grupę, planszę, komórkę startową, pozycję, ścieżkę, prędkość oraz stan logiczny.</p>
+  <p class="meta">Argumenty: <span class='itf'>GroupAbstract</span> group, <span class='cls'>Board</span> board, <span class='itf'>Cell</span> spawnCell. Typ zwracany: konstruktor nie zwraca wartości.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>Update</span>(<span class='cls'>GameTime</span> gameTime)</span>
+  <p>Aktualizuje rekrutację, ruch, ścieżkę i zmianę komórki.</p>
+  <p class="meta">Argumenty: <span class='cls'>GameTime</span> gameTime. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>Draw</span>(<span class='cls'>SpriteBatch</span> spriteBatch)</span>
+  <p>Rysuje agenta teksturą zgodną z kolorem jego grupy.</p>
+  <p class="meta">Argumenty: <span class='cls'>SpriteBatch</span> spriteBatch. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='itf'>GroupAbstract</span> <span class='mtd'>GetGroup</span>()</span>
+  <p>Zwraca grupę agenta.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='itf'>GroupAbstract</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>bool</span> <span class='mtd'>CanBeMoved</span>()</span>
+  <p>Zwraca informację, czy agent może zostać skierowany do celu.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='dt'>bool</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>SetTargetPath</span>(<span class='cls'>Queue</span>&lt;<span class='str'>Vector2</span>&gt; targetPath)</span>
+  <p>Ustawia nową ścieżkę ruchu agenta.</p>
+  <p class="meta">Argumenty: <span class='cls'>Queue</span>&lt;<span class='str'>Vector2</span>&gt; targetPath. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>LockAgent</span>(<span class='itf'>GroupAbstract</span> occup)</span>
+  <p>Blokuje agenta na czas rekrutacji i ustawia jego przyszłą grupę.</p>
+  <p class="meta">Argumenty: <span class='itf'>GroupAbstract</span> occup. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>bool</span> <span class='mtd'>IsBeingRecruted</span>()</span>
+  <p>Zwraca informację, czy agent jest w trakcie rekrutacji.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='dt'>bool</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>UnlockAgent</span>()</span>
+  <p>Odblokowuje agenta po rekrutacji.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>TryRecrute</span>(<span class='cls'>Pavment</span> actuallCell)</span>
+  <p>Sprawdza agentów w pobliżu i próbuje rozpocząć rekrutację obywatela.</p>
+  <p class="meta">Argumenty: <span class='cls'>Pavment</span> actuallCell. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public</span> <span class='dt'>void</span> <span class='mtd'>Wander</span>()</span>
+  <p>Obsługuje domyślne poruszanie agenta.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='dt'>void</span>.</p>
+</div></div></section><div class="page-nav"><a href="gang.html">← Gang</a><a class="right" href="podsumowanie-dzialanie.html">Podsumowanie działania →</a></div>
+      <div class="footer">
+        Dokumentacja produktu: symulacja agentowa przejmowania terytorium przez grupy działające na mapie miasta.
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Essentials — Dokumentacja symulacji</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    
+<aside class="sidebar">
+  <div class="brand">
+    <h1>Dokumentacja symulacji</h1>
+    <p>GTASA — symulacja agentowa w MonoGame</p>
+  </div>
+  <nav class="nav">
+
+<div class="section-label">1. Informacje ogólne</div>
+<a class="" href="info-cel.html">Cel programu</a>
+<a class="" href="info-tematyka.html">Tematyka symulacji</a>
+<a class="" href="info-mechaniki.html">Główne mechaniki</a>
+<a class="" href="info-przebieg.html">Przebieg działania</a>
+<a class="" href="info-technologie.html">Technologie</a>
+<div class="section-label">2. MonoGame</div>
+<a class="" href="monogame-rola.html">Rola MonoGame</a>
+<a class="" href="monogame-cykl.html">Cykl życia aplikacji</a>
+<a class="" href="game1.html">Game1</a>
+<a class="" href="monogame-obiekty.html">Najważniejsze obiekty</a>
+<div class="section-label">3. Struktura symulacji</div>
+<a class="" href="struktura-zaleznosci.html">Mapa zależności</a>
+<a class="" href="symulation.html">Symulation</a>
+<a class="active" href="essentials.html">Essentials</a>
+<a class="" href="board.html">Board</a>
+<a class="" href="cell.html">Cell</a>
+<a class="" href="emptycell.html">EmptyCell</a>
+<a class="" href="pavment.html">Pavment</a>
+<a class="" href="building.html">Building</a>
+<a class="" href="groupabstract.html">GroupAbstract</a>
+<a class="" href="group.html">Group</a>
+<a class="" href="citizens.html">Citizens</a>
+<a class="" href="police.html">Police</a>
+<a class="" href="gang.html">Gang</a>
+<a class="" href="agent.html">Agent</a>
+<div class="section-label">4. Podsumowanie i rozwój</div>
+<a class="" href="podsumowanie-dzialanie.html">Podsumowanie działania</a>
+<a class="" href="podsumowanie-cechy.html">Najważniejsze cechy</a>
+<a class="" href="podsumowanie-rozwoj.html">Kierunki rozwoju</a>
+<a class="" href="podsumowanie-zastosowania.html">Zastosowania</a>
+<a class="" href="podsumowanie-wniosek.html">Wniosek końcowy</a>
+</nav></aside>
+    <main>
+      
+<header class="class-header">
+  <p class="kicker">Dokumentacja elementu programu</p>
+  <h2><span class="cls">Essentials</span></h2>
+  <span class="pill">klasa</span>
+  <p>Statyczna klasa konfiguracyjna przechowująca parametry symulacji, tekstury, kierunki ruchu oraz enumy.</p>
+</header>
+<section class="card"><h3 class="section-title">Założenie i logika działania</h3><p>Klasa pełni rolę centralnego miejsca konfiguracji.</p></section><section class="card"><h3 class="section-title">Pola klasy</h3><div class="table-wrap"><table>
+<thead><tr><th>Pole</th><th>Opis</th></tr></thead>
+<tbody><tr><td><span class='signature'><span class='kw'>private readonly static</span> <span class='dt'>int</span> <span class='fld'>SEED</span></span></td><td>Ziarno generatora losowości.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='cls'>Random</span> <span class='fld'>RANDOM</span></span></td><td>Wspólny generator liczb losowych.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>int</span> <span class='fld'>MAP_SIZE</span></span></td><td>Rozmiar mapy.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>int</span> <span class='fld'>PAVMENT_COUNT</span></span></td><td>Liczba głównych chodników.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>int</span> <span class='fld'>PAVMENT_OFFSET</span></span></td><td>Minimalny odstęp między chodnikami.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>int</span> <span class='fld'>CELL_SIZE</span></span></td><td>Rozmiar komórki w pikselach.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>float</span> <span class='fld'>RENDER_ZOOM</span></span></td><td>Skala renderowania.</td></tr><tr><td><span class='signature'><span class='kw'>public static</span> <span class='cls'>Dictionary</span>&lt;<span class='enm'>TextureType</span>, <span class='cls'>Texture2D</span>&gt; <span class='fld'>TEXTURES_PAVMENT</span></span></td><td>Słownik tekstur chodników.</td></tr><tr><td><span class='signature'><span class='kw'>public static</span> <span class='cls'>Dictionary</span>&lt;(<span class='enm'>TextureType</span>, <span class='enm'>GroupColor</span>), <span class='cls'>Texture2D</span>&gt; <span class='fld'>TEXTURES_BUILDING</span></span></td><td>Słownik tekstur budynków, drzwi i agentów.</td></tr><tr><td><span class='signature'><span class='kw'>public static</span> <span class='cls'>Dictionary</span>&lt;<span class='dt'>int</span>, <span class='str'>Vector2</span>&gt; <span class='fld'>DIRECTIONS</span></span></td><td>Słownik kierunków ruchu.</td></tr></tbody>
+</table></div></section>
+<section class="card">
+  <h3 class="section-title">Podklasa <span class="cls">GroupSettings</span></h3>
+  <p><span class="cls">GroupSettings</span> przechowuje aktywne parametry działania grup agentów. Dzięki niej można sterować liczebnością, kolorami, czasem przejmowania, rekrutacją, zasięgiem reakcji i prędkościami.</p>
+  <div class="table-wrap"><table>
+<thead><tr><th>Pole</th><th>Opis</th></tr></thead>
+<tbody><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>int</span> <span class='fld'>GANGS_COUNT</span></span></td><td>Liczba gangów obecnych na mapie.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>int</span> <span class='fld'>POLICE_BASE_AGENT_COUNT</span></span></td><td>Początkowa liczba policjantów.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>int</span> <span class='fld'>CITIZENS_BASE_AGENT_COUNT</span></span></td><td>Początkowa liczba obywateli.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>int</span>[] <span class='fld'>GANGS_BASE_AGENT_COUNT</span></span></td><td>Tablica początkowych liczebności poszczególnych gangów.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='enm'>GroupColor</span> <span class='fld'>POLICE_COLOR</span></span></td><td>Kolor reprezentujący policję.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='enm'>GroupColor</span> <span class='fld'>CITIZENS_COLOR</span></span></td><td>Kolor reprezentujący obywateli.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='enm'>GroupColor</span>[] <span class='fld'>GANGS_COLOR</span></span></td><td>Tablica kolorów kolejnych gangów.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>bool</span> <span class='fld'>CITIZEN_RESPAWN</span></span></td><td>Określa, czy obywatele są uzupełniani do poziomu populacji startowej.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>float</span> <span class='fld'>TIME_TO_TAKE_OVER_BUILDING</span></span></td><td>Czas potrzebny na przejęcie budynku.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>bool</span> <span class='fld'>CAN_GANGS_RECRUTE</span></span></td><td>Określa, czy gangi mogą rekrutować obywateli.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>int</span> <span class='fld'>RECRUTATION_CHANCE</span></span></td><td>Procentowa szansa rekrutacji obywatela.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>float</span> <span class='fld'>TIME_TO_RECRUTE</span></span></td><td>Czas trwania rekrutacji.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>int</span> <span class='fld'>GANG_RADIUS_TO_DEFENCE_BUILIDNG</span></span></td><td>Zasięg reakcji gangu podczas obrony własnego budynku.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>int</span> <span class='fld'>GANG_RADIUS_TO_ATTACK_BUILIDNG</span></span></td><td>Zasięg przywoływania agentów do ataku.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>int</span> <span class='fld'>POLICE_RADIUS_TO_REACTE</span></span></td><td>Zasięg reakcji policji.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>float</span> <span class='fld'>BASE_SPEED</span></span></td><td>Bazowa wartość ruchu agentów.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>float</span> <span class='fld'>POLICE_SPEED_MODIFIRE</span></span></td><td>Modyfikator prędkości policji.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>float</span> <span class='fld'>CITIZNES_SPEED_MODIFIRE</span></span></td><td>Modyfikator prędkości obywateli.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>float</span>[] <span class='fld'>GANG_SPEED_MODIFIRE</span></span></td><td>Modyfikatory prędkości gangów.</td></tr><tr><td><span class='signature'><span class='kw'>public readonly static</span> <span class='dt'>bool</span> <span class='fld'>RANDOMIZE_SPEED_OF_EACH_AGNET</span></span></td><td>Określa, czy prędkość każdego agenta jest losowana indywidualnie.</td></tr></tbody>
+</table></div>
+</section>
+<section class="card">
+  <h3 class="section-title">Enumy zdefiniowane w pliku</h3>
+  <div class="grid-3">
+    <div class="tile"><h4><span class="enm">CellType</span></h4><p>Typ komórki: <span class="val">EmptyCell</span>, <span class="val">Pavment</span>, <span class="val">Building</span>.</p></div>
+    <div class="tile"><h4><span class="enm">TextureType</span></h4><p>Rodzaj tekstury: chodniki, części budynku, drzwi i agent.</p></div>
+    <div class="tile"><h4><span class="enm">GroupColor</span></h4><p>Kolor grupy: <span class="val">White</span>, <span class="val">Red</span>, <span class="val">Green</span>, <span class="val">Blue</span>.</p></div>
+  </div>
+</section>
+<section class="card"><h3 class="section-title">Metody klasy</h3><div class="method-list">
+<div class="method">
+  <span class="signature"><span class='kw'>public static</span> <span class='dt'>void</span> <span class='mtd'>Initialize</span>()</span>
+  <p>Inicjalizuje kierunki ruchu.</p>
+  <p class="meta">Argumenty: brak. Typ zwracany: <span class='dt'>void</span>.</p>
+</div>
+<div class="method">
+  <span class="signature"><span class='kw'>public static</span> <span class='dt'>void</span> <span class='mtd'>LoadContent</span>(<span class='cls'>ContentManager</span> contentManager)</span>
+  <p>Ładuje tekstury do słowników.</p>
+  <p class="meta">Argumenty: <span class='cls'>ContentManager</span> contentManager. Typ zwracany: <span class='dt'>void</span>.</p>
+</div></div></section><div class="page-nav"><a href="symulation.html">← Symulation</a><a class="right" href="board.html">Board →</a></div>
+      <div class="footer">
+        Dokumentacja produktu: symulacja agentowa przejmowania terytorium przez grupy działające na mapie miasta.
+      </div>
+    </main>
+  </div>
+</body>
+</html>
