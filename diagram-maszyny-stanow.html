@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cykl życia aplikacji — Dokumentacja symulacji</title>
+  <title>Diagram maszyny stanów — Dokumentacja symulacji</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="layout">
     
-
-
 
 <aside class="sidebar">
   <div class="brand">
@@ -28,7 +26,7 @@
 <a class="" href="info-autorzy.html">Autorzy</a>
 <div class="section-label">2. MonoGame</div>
 <a class="" href="monogame-rola.html">Rola MonoGame</a>
-<a class="active" href="monogame-cykl.html">Cykl życia aplikacji</a>
+<a class="" href="monogame-cykl.html">Cykl życia aplikacji</a>
 <a class="" href="game1.html">Game1</a>
 <a class="" href="monogame-obiekty.html">Najważniejsze obiekty</a>
 <div class="section-label">3. Struktura symulacji</div>
@@ -55,28 +53,37 @@
 <div class="section-label">5. Diagramy</div>
 <a class="" href="diagram-klas.html">Diagram klas</a>
 <a class="" href="diagram-obiektow.html">Diagram obiektów</a>
-<a class="" href="diagram-maszyny-stanow.html">Diagram maszyny stanów</a>
+<a class="active" href="diagram-maszyny-stanow.html">Diagram maszyny stanów</a>
 </nav></aside>
     <main>
       
 <header class="hero">
-  <p class="kicker">2. MonoGame</p>
-  <h2>Cykl życia aplikacji</h2>
-  <p>Aplikacja MonoGame działa według powtarzalnego cyklu inicjalizacji, aktualizacji i rysowania.</p>
-  
+  <p class="kicker">5. Diagramy</p>
+  <h2>Diagram maszyny stanów</h2>
+  <p>Diagram przedstawia rzeczywistą logikę aktualizacji symulacji opartą na kodzie aplikacji.</p>
+  <div class="badges">
+    <span class="badge">Diagram</span>
+    <span class="badge">PNG</span>
+    <span class="badge">Dokumentacja</span>
+  </div>
 </header>
 
 <section class="card">
-  <h3 class="section-title">Metody cyklu życia</h3>
-  <ol class="flow">
-    <li><span class="mtd">Initialize</span> — przygotowanie podstawowych obiektów.</li>
-    <li><span class="mtd">LoadContent</span> — załadowanie tekstur i zasobów.</li>
-    <li><span class="mtd">Update</span> — aktualizacja logiki symulacji w każdej klatce.</li>
-    <li><span class="mtd">Draw</span> — rysowanie aktualnego stanu programu.</li>
-  </ol>
+  <h3 class="section-title">Opis diagramu</h3>
+  <p>Diagram maszyny stanów opisuje kolejność wykonywania aktualizacji oraz najważniejsze przejścia stanów agentów, budynków, gangów, policji i obywateli.</p>
+  <ul><li>Pokazuje główną pętlę aktualizacji: zliczanie populacji, Citizens.Update, Police.Update, Gang.Update, Board.Update i Draw.</li><li>Opisuje zachowanie agentów na podstawie pól takich jak isBeingRecruted, targetPath, isMoving i canBeMoved.</li><li>Przedstawia logikę budynków, przejmowania, aktualizacji grup i reakcji policji wyłącznie na podstawie kodu.</li></ul>
 </section>
 
-<div class="page-nav"><a href="monogame-rola.html">← Rola MonoGame</a><a class="right" href="game1.html">Game1 →</a></div>
+<section class="diagram-image-card">
+  <div class="diagram-image-wrap">
+    <img class="diagram-image" src="assets/diagram-maszyny-stanow.png" alt="Diagram maszyny stanów" />
+  </div>
+  <div class="diagram-actions">
+    <a href="assets/diagram-maszyny-stanow.png" target="_blank" rel="noopener">Otwórz obraz w pełnym rozmiarze</a>
+  </div>
+</section>
+
+<div class="page-nav"><a href="diagram-obiektow.html">← Diagram obiektów</a><span></span></div>
 
       <div class="footer">
         Dokumentacja produktu: symulacja agentowa przejmowania terytorium przez grupy działające na mapie miasta.
